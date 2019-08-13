@@ -1,4 +1,12 @@
 = render "shared/header"
+#main_visual
+  .main_visual_in
+    %div
+      = image_tag "banner-natsukashi.jpg", alt: "s1"
+    %div
+      = image_tag "banner-camp.jpg", alt: "s2"
+    %div
+      = image_tag "banner-natsukashi.jpg", alt: "s3"
 .pickup
   %h2 商品一覧
   .pickup__items
@@ -7,14 +15,5 @@
 .category
   .category__name カテゴリ名
   .category__namedescription 説明文
-#main_visual
-  .main_visual_in
-    %div
-      = image_tag "logo.svg", alt: "s1"
-    %div
-      = image_tag "banner-camp.jpg", alt: "s2"
-    %div
-      = image_tag "banner-natsukashi.jpg", alt: "s3"
-= render "shared/banner"
 = render "shared/footer"
 = render 'shared/sell_btn'

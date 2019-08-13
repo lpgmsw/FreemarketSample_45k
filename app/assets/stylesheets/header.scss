@@ -8,12 +8,11 @@
   background-color: white;
 
   &__top{
-    width: 90%;
     display: flex;
-    margin: auto;
     align-items: center;
     justify-content: center;
     height: 50px;
+    margin-left: 10px;
 
     &--right{
       margin-top: 20px;
@@ -21,13 +20,11 @@
   }
 
   &__bottom{
-    width: 90%;
     display: flex;
-    margin-left: 6.5%;
     align-items: center;
+    justify-content: center;
     background-color: white;
     height: 50px;
-    left: 30px;
 
     &--left{
       display: flex;
@@ -36,15 +33,46 @@
 
     &--right{
       display: flex;
-      margin-left: 380px;
+      margin-left: 150px;
     }
   }
+}
+.header__bottom--right-block{
+  position: relative;
+  padding: 0 14px;
+}
+
+.ball-icon{
+  height: 32px;
+  width: 32px;
+  background-color: green;
+  border-radius: 50%;
+  display: inline-block;
+  align-items: center;
+}
+
+.bell-icon{
+  font-size: 25px;
+}
+
+.check-icon{
+  font-size: 25px;
 }
 
 .product-search{
   width: 780px;
   height: 40px;
   margin: 0 0 15px 15px;
+  padding-left: 10px;
+  position: relative;
+}
+
+.search-icon{
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  top: 20px;
+  right: 500px;
 }
 
 .header-mercari-icon{
@@ -78,12 +106,7 @@
   background: #1e90ff;
   color: #ffffff;
 }
-.search-icon{
-  height: 20px;
-  width: 20px;
-  position: relative;
-  right: 40px;
-}
+
 .fa-list.header__bottom--left--itemcategory-list, .header__bottom--left--itemcategory-brand{
   color: #dc143c;
 }

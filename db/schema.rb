@@ -45,6 +45,16 @@ ActiveRecord::Schema.define(version: 20190716113643) do
     t.index ["user_id"], name: "index_comments_on_user_id", using: :btree
   end
 
+  create_table "credit_cards", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "credit_number",          null: false
+    t.integer  "credit_security_number", null: false
+    t.integer  "credit_expire_date",     null: false
+    t.integer  "user_id",                null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.index ["user_id"], name: "index_credit_cards_on_user_id", using: :btree
+  end
+
   create_table "items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",            null: false
     t.integer  "sub_category_id", null: false

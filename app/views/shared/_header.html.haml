@@ -120,7 +120,21 @@
                 %a{:href => "#"} アディダス
               %li
                 %a{:href => "#"} カテゴリー一覧
-    .header__bottom--right
-      %a.new_user_btn{:href => user_session_path} ログイン
-      %a.sign_in_btn{:href => new_user_registration_path} 新規会員登録
+      - if user_signed_in?
+        .header__bottom--right
+          .header__bottom--right-block
+            = fa_icon 'bell', class: 'bell-icon'
+            = link_to 'お知らせ', root_path, class: "logged-in-button"
+          .header__bottom--right-block
+            = fa_icon 'check', class: 'check-icon'
+            = link_to 'やることリスト', root_path, class: "logged-in-button"
+          .header__bottom--right-block
+            .ball-icon
+            = link_to 'マイページ', destroy_user_session_path, method: "delete", class: "logged-in-button"
 
+
+      - else
+        .header__bottom--right
+          = link_to '新規会員登録', new_user_registration_path, method: "get", class: "sign_in_btn"
+          = link_to 'ログイン', user_session_path, method: "get", class: "new_user_btn"
+        
