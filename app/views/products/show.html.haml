@@ -6,14 +6,7 @@
       = @product.name
     .product-wrapper
       .product__picture
-        .product__picture--main
-        .product__picture--sub-container
-          .product__picture--sub
-          .product__picture--sub
-          .product__picture--sub
-          .product__picture--sub
-          .product__picture--sub
-          .product__picture--sub
+        = image_tag @product.product_image.image_url, size: "212x200", alt: "カテゴリ"
       .product__detail
         .product__detail--pack
           .product__detail--left 出品者
