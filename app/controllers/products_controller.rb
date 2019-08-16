@@ -12,7 +12,6 @@ class ProductsController < ApplicationController
   def create
     product_params = params_int(set_product_params)
     @product = Product.new(product_params)
-    binding.pry
     @product.save!
     redirect_to root_path, notice: '商品が出品されました'
   end
@@ -49,12 +48,12 @@ class ProductsController < ApplicationController
                                     :shipping_place,
                                     :shipping_date,
                                     :price,
-                                    product_image_attributes: [:id, :product_id, :image])
+                                    product_image_attributes: [:id, :product_id, :user_id, :image]).merge(user_id: current_user.id)
   end
 
   def params_int(product_params)
     product_params.each do |key,value|
-      unless key == "name" || key == "description" || key == "product_image" || key == "image" || key == "product_image_attributes" || key == null
+      unless key == "name" || key == "description" || key == "product_image" || key == "image" || key == "bland_id" || key == "product_image_attributes"
         product_params[key] = value.to_i
       end
     end
