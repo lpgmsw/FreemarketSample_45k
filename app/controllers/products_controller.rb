@@ -12,8 +12,11 @@ class ProductsController < ApplicationController
   def create
     product_params = params_int(set_product_params)
     @product = Product.new(product_params)
-    @product.save!
-    redirect_to root_path, notice: '商品が出品されました'
+    if @product.save
+      redirect_to root_path, notice: '商品が出品されました'
+    else
+      render action: :new
+    end
   end
 
   def edit
