@@ -1,5 +1,11 @@
 = render partial: "shared/icon-header"
 .content-wrapper
+  - if @product.errors.any?
+    %h3
+      入力した内容にエラーが#{@product.errors.count}件あります
+    %ul
+      - @product.errors.full_messages.each do |message|
+        %li=message
   = form_for @product do |f|
     .content-wrapper__header 商品情報を入力
     .upload-box
@@ -39,7 +45,7 @@
         .detail-container-pack
           .detail__subtitle サイズ
           %span.essential-icon 必須
-          = f.select :size, { "---": nil, "XXS以下": 1, "XS(SS)": 2, "S": 3, "M": 4, "L": 5, "L": 6, "XL": 7, "2XL": 8, "3XL": 9, "4XL(5L)": 10, "FREE SIZE": 11} , {} , { class: "detail__pull-down"}
+          = f.select :size, { "---": nil, "XXS以下": 1, "XS(SS)": 2, "S": 3, "M": 4, "L": 5, "XL": 6, "2XL": 7, "3XL": 8, "4XL(5L)": 9, "FREE SIZE": 10} , {} , { class: "detail__pull-down"}
           %i.fas.fa-chevron-down.arrow-down
         .detail-container-pack
           .detail__subtitle 商品の状態
@@ -97,6 +103,7 @@
       .sell-box__description--link を必ずご確認ください。
       .sell-box__description を必ずご確認ください。またブランド品でシリアルナンバー等がある場合はご記載ください。偽ブランドの販売は犯罪であり処罰される可能性があります。<br>また、出品をもちまして加盟店規約に同意したことになります。
       =f.submit "出品する", class: "sell-box__sell-button"
-      .sell-box__back-button もどる
+      .sell-box__back-button
+        = link_to 'もどる', root_path
     .content-wrapper__footer
 = render partial: "shared/sub-footer"
