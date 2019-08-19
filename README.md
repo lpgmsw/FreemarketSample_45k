@@ -1,7 +1,7 @@
 # ポートフォリオ（フリマアプリのクローンサイト）
 ## 概要
-出品された商品を購入できるサイト。
-出品時に画像を投稿することもできる。
+* 出品された商品を購入できるサイト。
+* 出品時に画像を投稿することも可能。
  <img width="500" alt="wugUQRE3J6kZgj51564408861" src="https://user-images.githubusercontent.com/47979613/63277310-0f7fb000-c2e0-11e9-8462-da3c4096f8d3.png">
 
 ## アプリで使用している機能
@@ -46,11 +46,11 @@
 | phone_number | string | VARCHAR(255) |
 
 ### Association
-  has_many :reputations
-  has_many :comments
-  has_many :products
-  has_many :sold_products
-  has_many :cards
+- has_many :reputations
+- has_many :comments
+- has_many :products
+- has_many :sold_products
+- has_many :cards
 
 ***
 ***
@@ -77,14 +77,14 @@
 | item_id | integer | null:false, foreign_key: true|
 
 ### Association
-  belongs_to :user, optional: true
-  has_one :bland
-  has_one :region
-  has_many :categorys
-  has_many :images
-  has_one :product_image
-  has_many :comments
-  accepts_nested_attributes_for :product_image
+- belongs_to :user, optional: true
+- has_one :bland
+- has_one :region
+- has_many :categorys
+- has_many :images
+- has_one :product_image
+- has_many :comments
+- accepts_nested_attributes_for :product_image
 
 ***
 ***
@@ -97,9 +97,9 @@
 | image | string | VARCHAR(255) |
 
 ### Association
-  belongs_to :product, optional: true
-  belongs_to :user, optional: true
-  mount_uploader :image, ImageUploader
+- belongs_to :product, optional: true
+- belongs_to :user, optional: true
+- mount_uploader :image, ImageUploader
 
 ***
 ***
@@ -112,7 +112,7 @@
 | name | string | null:false, VARCHAR(255), index:true |
 
 ### Association
-  belongs_to :product
+- belongs_to :product
 
 ***
 ***
